@@ -1,0 +1,8 @@
+{
+  "name": "NodeJSTutorial",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:123456hawkins/NodeJS-Tutorial.git",
+  "author": "123456hawkins <2398430768@qq.com>",
+  "license": "MIT"
+}
