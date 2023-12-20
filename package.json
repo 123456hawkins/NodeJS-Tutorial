@@ -9,6 +9,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "glob": "^10.3.10"
+    "glob": "^10.3.10",
+    "nodemon": "^3.0.2"
   }
 }
