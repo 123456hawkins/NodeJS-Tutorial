@@ -1,0 +1,10 @@
+const fs = require('fs')
+const path = require('path')
+const filePath1 = path.resolve(__dirname, '2.js')
+const filePath2 = path.resolve(__dirname, 'copy.js')
+const readStream = fs.createReadStream(filePath1)
+const writeStream = fs.createWriteStream(filePath2)
+readStream.pipe(writeStream)
+readStream.on('end', () => {
+  console.log('拷贝结束')
+})
