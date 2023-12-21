@@ -8,7 +8,6 @@ fs.open(filePath1, 'r', (err, readFd) => {
   if (err) {
     console.log(err)
   } else {
-    
     fs.open(filePaht2, 'w', (err, writeFd) => {
       let buf = Buffer.alloc(3)
       let readed = 0 //下次读取文件位置
@@ -25,9 +24,12 @@ fs.open(filePath1, 'r', (err, readFd) => {
         // 写文件
         fs.write(writeFd, buf, 0, bytesRead, writed, (err, bytesWritten) => {
           if (!bytesWritten) {
-            fs.close(writeFd)
+            fs.fsync(writeFd, (err) => {
+              fs.close(writeFd)
+            })
           }
           writed += bytesWritten
+          next()
         })
       })
     })()
