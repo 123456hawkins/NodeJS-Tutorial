@@ -4,7 +4,7 @@ const cluster = require('cluster')
 if (cluster.isMaster) {
   console.log('Master process pid is', process.pid)
   for (let i = 0; i < numCPUS; i++) {
-    cluster.fork()
+    cluster.fork() //再创建一个进程
   }
   cluster.on('exit', (worker, code, signal) => {
     console.log('worker process died,id:', worker.process.pid)
