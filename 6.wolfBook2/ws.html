@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <button onclick="start()">开始连接</button>
+    <button onclick="stop()">关闭连接</button>
+  </div>
+  <script>
+    let ws1
+    let ws2
+    let ws3
+    let ws4
+    const start = () => {
+      ws1 = new WebSocket("ws://localhost:3000/ws1")
+      ws2 = new WebSocket("ws://localhost:3000/ws2")
+      ws3 = new WebSocket("ws://localhost:3000/ws3")
+      ws4 = new WebSocket("ws://localhost:3000/ws4")
+
+      ws1.onopen = () => {
+        console.log('ws1 CONNECT');
+      }
+      ws1.onmessage = (event) => {
+        // 处理从后端推送过来的数据
+        console.log('##ws1## ', event.data);
+      };
+      ws1.onclose = () => {
+        console.log('ws1 Closed');
+      }
+
+      ws2.onopen = () => {
+        console.log('ws2 CONNECT');
+      }
+      ws2.onmessage = (event) => {
+        // 处理从后端推送过来的数据
+        console.log('##ws2## ', event.data);
+      };
+      ws2.onclose = () => {
+        console.log('ws2 Closed');
+      }
+
+      ws3.onopen = () => {
+        console.log('ws3 CONNECT');
+      }
+      ws3.onmessage = (event) => {
+        // 处理从后端推送过来的数据
+        console.log('##ws3## ', event.data);
+      };
+      ws3.onclose = () => {
+        console.log('ws3 Closed');
+      }
+
+      ws4.onopen = () => {
+        console.log('ws4 CONNECT');
+      }
+      ws4.onmessage = (event) => {
+        // 处理从后端推送过来的数据
+        console.log('##ws4## ', event.data);
+      };
+      ws4.onclose = () => {
+        console.log('ws4 Closed');
+      }
+    }
+    const stop = () => {
+      ws1.close()
+      ws2.close()
+      ws3.close()
+      ws4.close()
+    }
+  </script>
+</body>
+
+</html>

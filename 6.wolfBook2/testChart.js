@@ -142,6 +142,7 @@ app.get('/api/pop4', (req, res) => {
     res.status(404).json({ error: 'Data point not found' })
   }
 })
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`)
 })
